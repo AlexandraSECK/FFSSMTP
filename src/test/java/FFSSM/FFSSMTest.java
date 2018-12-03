@@ -16,7 +16,7 @@ import org.junit.BeforeClass;
 
 /**
  *
- * @author lnetto
+ * @author aseck
  */
 public class FFSSMTest {
 
@@ -85,8 +85,7 @@ public class FFSSMTest {
     public void TestClub(){
                 Plongee p = new Plongee(s1, mon1, Calendar.getInstance(), 30, 25);
                 c.organisePlongee(p);
-                        p.ajouteParticipant(p1);
-
+                p.ajouteParticipant(p1);
                 assertEquals(1,c.listePlongee.size());
                 assertEquals(1,c.plongeesNonConformes().size());
     }
