@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Moniteur.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FFSSM_Enonce</a> &gt; <a href="index.source.html" class="el_package">FFSSM</a> &gt; <span class="el_source">Moniteur.java</span></div><h1>Moniteur.java</h1><pre class="source lang-java linenums">/**
+ * @(#) Moniteur.java
+ */
+package FFSSM;
+
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Moniteur extends Plongeur {
+
+    public int numeroDiplome;
+<span class="fc" id="L14">    public List&lt;Embauche&gt; myEmbauches=new LinkedList&lt;&gt;(); </span>
+
+    public Moniteur(String numeroINSEE, String nom, String prenom, String adresse, String telephone, Calendar naissance, int numeroDiplome, int niveau) {
+<span class="fc" id="L17">        super(numeroINSEE, nom, prenom, adresse, telephone, naissance,niveau);</span>
+<span class="fc" id="L18">        this.numeroDiplome = numeroDiplome;</span>
+<span class="fc" id="L19">    }</span>
+
+    public Club employeur() {
+         // TODO: Implémenter cette méthode
+<span class="fc bfc" id="L23" title="All 2 branches covered.">         if(myEmbauches.isEmpty())</span>
+<span class="fc" id="L24">             return null;</span>
+<span class="fc" id="L25">         Embauche e= myEmbauches.get(myEmbauches.size()-1);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">         if(!e.estTerminee()){</span>
+<span class="fc" id="L27">             return e.getEmployeur();   </span>
+         }
+         //Si pas d'employeur
+         else 
+<span class="fc" id="L31">            return null;               </span>
+        }
+    
+    public void nouvelleEmbauche(Club employeur, Calendar debutNouvelle) {   
+         // TODO: Implémenter cette méthode
+<span class="fc" id="L36">         Calendar cal = Calendar.getInstance();</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">                  if(!myEmbauches.isEmpty()){</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">         if(!this.myEmbauches.get(this.myEmbauches.size()-1).estTerminee())</span>
+<span class="fc" id="L39">            this.myEmbauches.get(this.myEmbauches.size()-1).terminer(cal);</span>
+                  }
+<span class="fc" id="L41">         Embauche e = new Embauche(debutNouvelle, this , employeur);</span>
+<span class="fc" id="L42">         myEmbauches.add(e);</span>
+<span class="fc" id="L43">    }</span>
+
+    public List&lt;Embauche&gt; emplois() {
+         // TODO: Implémenter cette méthode
+<span class="nc" id="L47">         return myEmbauches;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>

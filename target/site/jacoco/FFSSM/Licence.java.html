@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Licence.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">FFSSM_Enonce</a> &gt; <a href="index.source.html" class="el_package">FFSSM</a> &gt; <span class="el_source">Licence.java</span></div><h1>Licence.java</h1><pre class="source lang-java linenums">/**
+ * @(#) LicencePlongeur.java
+ */
+package FFSSM;
+
+import java.util.Calendar;
+
+public class Licence {
+
+    public Personne possesseur;
+
+    public String numero;
+
+    public Calendar delivrance;
+
+    public int niveau;
+
+    public Club club;
+
+<span class="fc" id="L20">    public Licence(Personne possesseur, String numero, Calendar delivrance, int niveau, Club club) {</span>
+<span class="fc" id="L21">        this.possesseur = possesseur;</span>
+<span class="fc" id="L22">        this.numero = numero;</span>
+<span class="fc" id="L23">        this.delivrance = delivrance;</span>
+<span class="fc" id="L24">        this.niveau = niveau;</span>
+<span class="fc" id="L25">        this.club = club;</span>
+<span class="fc" id="L26">    }</span>
+
+    public Personne getPossesseur() {
+<span class="nc" id="L29">        return possesseur;</span>
+    }
+
+    public String getNumero() {
+<span class="nc" id="L33">        return numero;</span>
+    }
+
+    public Calendar getDelivrance() {
+<span class="nc" id="L37">        return delivrance;</span>
+    }
+
+    public int getNiveau() {
+<span class="nc" id="L41">        return niveau;</span>
+    }
+
+    public Club getClub() {
+<span class="nc" id="L45">        return club;</span>
+    }
+
+    /**
+     * Est-ce que la licence est valide à la date indiquée ?
+     * @param d la date à tester
+     * @return vrai si valide à la date d
+     **/
+    public boolean estValide(Calendar d) {
+<span class="fc" id="L54">        d.add(Calendar.YEAR, -1);</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">        if (d.before(delivrance)){</span>
+<span class="fc" id="L56">            return true;</span>
+        }
+        else{
+<span class="fc" id="L59">            return false;</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.7.201606060606</span></div></body></html>
